@@ -1,0 +1,7 @@
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab1.2-1.3\bin\Debug\SA_lab1.2-1.3.exe.config
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab1.2-1.3\bin\Debug\SA_lab1.2-1.3.exe
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab1.2-1.3\bin\Debug\SA_lab1.2-1.3.pdb
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab1.2-1.3\obj\Debug\SA_lab1.2-1.3.csproj.AssemblyReference.cache
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab1.2-1.3\obj\Debug\SA_lab1.2-1.3.csproj.CoreCompileInputs.cache
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab1.2-1.3\obj\Debug\SA_lab1.2-1.3.exe
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab1.2-1.3\obj\Debug\SA_lab1.2-1.3.pdb
