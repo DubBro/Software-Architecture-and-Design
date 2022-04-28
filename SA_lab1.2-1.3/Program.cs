@@ -28,7 +28,11 @@ namespace arch_lab1._2_1._3
             Console.WriteLine();
 
             desktop.Play(GameID.Adventure); // ERROR: Device's technical characteristics are too low
-            desktop.Play(GameID.Strategy); // Strategy is running
+            Console.WriteLine();
+            desktop.Play(GameID.Strategy); // Nothing to load. Starting new game. Strategy is running
+            Console.WriteLine();
+            desktop.Play(GameID.Strategy); // Strategy was loaded. Continue playing. Strategy is running
+            Console.WriteLine();
             laptop.Play(GameID.Strategy); // ERROR: The game is not installed
         }
     }
