@@ -14,16 +14,10 @@ namespace arch_lab1._2_1._3
             Desktop desktop = new Desktop(400, 300, 8, 1.8f, 2.2f);
             Mobile mobile = new Mobile(200, 150, 8, 2.0f, 2.4f);
 
-            Console.WriteLine(laptop.TechnicalCharacteristics.HDDCapacity);
-            Console.WriteLine(mobile.TechnicalCharacteristics.HDDUsage);
-            Console.WriteLine(desktop.TechnicalCharacteristics.GraphCardSpeed);
-
-            Console.WriteLine();
-
             desktop.InstallGame((GameID)4); // ERROR: Invalid input. Try again
-            desktop.InstallGame(GameID.Strategy);
-            desktop.InstallGame(GameID.Adventure);
-            mobile.InstallGame(GameID.Strategy);
+            desktop.InstallGame(GameID.Strategy); // The game has been installed successfully
+            desktop.InstallGame(GameID.Adventure); // The game has been installed successfully
+            mobile.InstallGame(GameID.Strategy); // ERROR: This device does not support the game
 
             Console.WriteLine();
 
@@ -34,6 +28,10 @@ namespace arch_lab1._2_1._3
             desktop.Play(GameID.Strategy); // Strategy was loaded. Continue playing. Strategy is running
             Console.WriteLine();
             laptop.Play(GameID.Strategy); // ERROR: The game is not installed
+
+            Console.WriteLine();
+
+            mobile.Broadcast(); // Mobile is broadcasting
         }
     }
 }

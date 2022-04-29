@@ -26,6 +26,7 @@ namespace arch_lab1._2_1._3
             {
                 games.Add(game);
                 technicalCharacteristics.HDDUsage = technicalCharacteristics.HDDUsage + game.Requirements.HDDUsage;
+                Console.WriteLine("The game has been installed successfully");
             }
         }
 
@@ -124,6 +125,11 @@ namespace arch_lab1._2_1._3
         public Mobile(int hddCapacity, int hddUsage, int ramCapacity, float graphCardSpeed, float processorSpeed)
         {
             technicalCharacteristics = new TechnicalCharacteristics(hddCapacity, hddUsage, ramCapacity, graphCardSpeed, processorSpeed);
+        }
+
+        public void Broadcast()
+        {
+            Console.WriteLine(this.GetType().Name + " is broadcasting");
         }
     }
 }

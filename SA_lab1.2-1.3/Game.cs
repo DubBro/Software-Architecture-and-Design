@@ -33,6 +33,7 @@ namespace arch_lab1._2_1._3
             {
                 if (!(device is Desktop))
                 {
+                    Console.WriteLine("ERROR: This device does not support the game");
                     return null;
                 }
 
@@ -43,6 +44,7 @@ namespace arch_lab1._2_1._3
                     return strategy;
                 }
 
+                Console.WriteLine("ERROR: Not enough space in the device memory");
                 return null;
             }
             else if (game == GameID.Adventure)
@@ -54,6 +56,7 @@ namespace arch_lab1._2_1._3
                     return adventure;
                 }
 
+                Console.WriteLine("ERROR: Not enough space in the device memory");
                 return null;
             }
             else if (game == GameID.RPG)
@@ -65,6 +68,7 @@ namespace arch_lab1._2_1._3
                     return rpg;
                 }
 
+                Console.WriteLine("ERROR: Not enough space in the device memory");
                 return null;
             }
             else
