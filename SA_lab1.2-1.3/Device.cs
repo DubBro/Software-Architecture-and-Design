@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace arch_lab1._2_1._3
+namespace SA_lab1._2_1._3
 {
     abstract class Device
     {
         protected TechnicalCharacteristics technicalCharacteristics;
+        private List<Manipulator> manipulators = new List<Manipulator>();
         private List<Game> games = new List<Game>();
+        private List<ISubscriber> subscribers = new List<ISubscriber>();
 
         public TechnicalCharacteristics TechnicalCharacteristics
         {
@@ -27,6 +29,11 @@ namespace arch_lab1._2_1._3
                 games.Add(game);
                 technicalCharacteristics.HDDUsage = technicalCharacteristics.HDDUsage + game.Requirements.HDDUsage;
                 Console.WriteLine("The game has been installed successfully");
+
+                if (game is ISubscriber)
+                {
+                    subscribers.Add((ISubscriber)game);
+                }
             }
         }
 
@@ -88,7 +95,7 @@ namespace arch_lab1._2_1._3
                     technicalCharacteristics.GraphCardSpeed >= rpg.Requirements.GraphCardUsage &&
                     technicalCharacteristics.ProcessorSpeed >= rpg.Requirements.ProcessorUsage)
                 {
-                    rpg.Play();
+                    (rpg as RPG).Play();
                 }
                 else
                 {
@@ -98,6 +105,25 @@ namespace arch_lab1._2_1._3
             else
             {
                 Console.WriteLine("ERROR: Invalid input. Try again");
+            }
+        }
+
+        public void ConnectManipulator(Manipulator manipulator)
+        {
+            manipulators.Add(manipulator);
+            Console.WriteLine("Manipulator connected");
+
+            if (manipulators.Count > 1)
+            {
+                NotifySubscribers();
+            }
+        }
+
+        private void NotifySubscribers()
+        {
+            foreach (var subscriber in subscribers)
+            {
+                subscriber.MakeMultiPlayerAvailable();
             }
         }
     }

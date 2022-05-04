@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Device.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="ISubscriber.cs" />
+    <Compile Include="Manipulator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Requirements.cs" />

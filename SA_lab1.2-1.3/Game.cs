@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 
-namespace arch_lab1._2_1._3
+namespace SA_lab1._2_1._3
 {
     enum GameID
     {
@@ -16,7 +16,8 @@ namespace arch_lab1._2_1._3
 
     abstract class Game
     {
-        protected const string savePath = "LastSave.txt";
+        protected bool isRunning = false;
+        public abstract string SavePath { get; set; }
         protected Requirements requirements;
 
         public Requirements Requirements
@@ -78,29 +79,60 @@ namespace arch_lab1._2_1._3
             }
         }
 
-        public void Play()
+        public abstract void Play();
+
+        protected abstract void Save();
+
+        protected abstract void Load();
+    }
+
+    class Strategy : Game
+    {
+        private string savePath = "StrategyLastSave.txt";
+        public override string SavePath
         {
+            get
+            {
+                return savePath;
+            }
+            set
+            {
+                savePath = value;
+            }
+        }
+
+        public Strategy()
+        {
+            requirements = new Requirements(20, 4, 1.6f, 2.0f);
+        }
+
+        public override void Play()
+        {
+            if (isRunning == true)
+            {
+                Console.WriteLine("ERROR: Can't run 2 or more games at the same time");
+                return;
+            }
+
+            isRunning = true;
             Load();
             Console.WriteLine(GetType().Name + " is running");
             Save();
+            isRunning = false;
         }
 
-        // Each game has its own params to save, so each game has different function Save()
-        // Therefore Save() is virtual
-        protected virtual void Save()
+        protected override void Save()
         {
             string exmplParams = this.GetType().Name;
 
             using (FileStream instream = File.Create(savePath))
-            { 
+            {
                 byte[] stream = System.Text.Encoding.Default.GetBytes(exmplParams);
                 instream.Write(stream, 0, stream.Length);
             }
         }
 
-        // Each game has its own params to load, so each game has different function Load()
-        // Therefore Load() is virtual
-        protected virtual void Load()
+        protected override void Load()
         {
             if (File.Exists(savePath))
             {
@@ -114,81 +146,223 @@ namespace arch_lab1._2_1._3
                 }
 
                 Console.WriteLine(exmplParams + " was loaded. Continue playing.");
-            } 
-            else 
+            }
+            else
             {
                 Console.WriteLine("Nothing to load. Starting new game.");
             }
         }
     }
 
-    class Strategy : Game
-    {
-        public Strategy()
-        {
-            requirements = new Requirements(20, 4, 1.6f, 2.0f);
-        }
-        
-        // Need to rewrite according to params of this game
-        protected override void Save()
-        {
-            base.Save();
-        }
-
-        // Need to rewrite according to params of this game
-        protected override void Load()
-        {
-            base.Load();
-        }
-    }
-
     class Adventure : Game
     {
+        private string savePath = "AdventureLastSave.txt";
+        public override string SavePath 
+        {
+            get 
+            {
+                return savePath;
+            }
+            set 
+            {
+                savePath = value;
+            } 
+        }
+
         public Adventure()
         {
             requirements = new Requirements(50, 8, 2.0f, 2.4f);
         }
 
-        // Need to rewrite according to params of this game
-        protected override void Save()
+        public override void Play()
         {
-            base.Save();
+            if (isRunning == true)
+            {
+                Console.WriteLine("ERROR: Can't run 2 or more games at the same time");
+                return;
+            }
+
+            isRunning = true;
+            Load();
+            Console.WriteLine(GetType().Name + " is running");
+            Save();
+            isRunning = false;
         }
 
-        // Need to rewrite according to params of this game
+        protected override void Save()
+        {
+            string exmplParams = this.GetType().Name;
+
+            using (FileStream instream = File.Create(savePath))
+            {
+                byte[] stream = System.Text.Encoding.Default.GetBytes(exmplParams);
+                instream.Write(stream, 0, stream.Length);
+            }
+        }
+
         protected override void Load()
         {
-            base.Load();
+            if (File.Exists(savePath))
+            {
+                string exmplParams;
+
+                using (FileStream outstream = File.OpenRead(savePath))
+                {
+                    byte[] stream = new byte[outstream.Length];
+                    outstream.Read(stream, 0, stream.Length);
+                    exmplParams = System.Text.Encoding.Default.GetString(stream);
+                }
+
+                Console.WriteLine(exmplParams + " was loaded. Continue playing.");
+            }
+            else
+            {
+                Console.WriteLine("Nothing to load. Starting new game.");
+            }
         }
     }
 
-    class RPG : Game
+    class RPG : Game, ISubscriber
     {
+        private bool isMultiPlayerAvailable = false;
+        private string savePath = "RPGLastSave.txt";
+        public override string SavePath
+        {
+            get
+            {
+                return savePath;
+            }
+            set
+            {
+                savePath = value;
+            }
+        }
+
         public RPG()
         {
             requirements = new Requirements(40, 8, 1.8f, 2.2f);
         }
 
-        // Need to rewrite according to params of this game
+        public override void Play()
+        {
+            if (isRunning == true)
+            {
+                Console.WriteLine("ERROR: Can't run 2 or more games at the same time");
+                return;
+            }
+
+            Console.WriteLine("Choose Mode: ");
+            Console.WriteLine("1 - Singleplayer");
+            Console.WriteLine("2 - Multiplayer");
+            Console.Write("Enter number: ");
+            string x = Console.ReadLine();
+            switch (x)
+            {
+                case "1":
+                    SinglePlay();
+                    break;
+                case "2":
+                    MultiPlay();
+                    break;
+                default:
+                    Console.WriteLine("ERROR: Invalid input. Try again");
+                    return;
+            }
+        }
+
+        private void SinglePlay()
+        {
+            isRunning = true;
+            Load();
+            Console.WriteLine(GetType().Name + " is running. Singleplayer mode");
+            Save();
+            isRunning = false;
+        }
+
+        private void MultiPlay()
+        {
+            if (isMultiPlayerAvailable == false)
+            {
+                Console.WriteLine("ERROR: Multiplayer mode is unavailable. Please, connect manipulators");
+                return;
+            }
+                
+            isRunning = true;
+            Load("RPGMultiLastSave.txt");
+            Console.WriteLine(GetType().Name + " is running. Multiplayer mode");
+            Save("RPGMultiLastSave.txt");
+            isRunning = false;
+        }
+
         protected override void Save()
         {
-            base.Save();
+            string exmplParams = this.GetType().Name;
+
+            using (FileStream instream = File.Create(savePath))
+            {
+                byte[] stream = System.Text.Encoding.Default.GetBytes(exmplParams);
+                instream.Write(stream, 0, stream.Length);
+            }
         }
 
-        // Need to rewrite according to params of this game
         protected override void Load()
         {
-            base.Load();
+            if (File.Exists(savePath))
+            {
+                string exmplParams;
+
+                using (FileStream outstream = File.OpenRead(savePath))
+                {
+                    byte[] stream = new byte[outstream.Length];
+                    outstream.Read(stream, 0, stream.Length);
+                    exmplParams = System.Text.Encoding.Default.GetString(stream);
+                }
+
+                Console.WriteLine(exmplParams + " was loaded. Continue playing.");
+            }
+            else
+            {
+                Console.WriteLine("Nothing to load. Starting new game.");
+            }
         }
 
-        void SinglePlay()
+        // Other func for multiplayer mode
+        private void Save(string path)
         {
+            string exmplParams = this.GetType().Name + " Multiplayer";
 
+            using (FileStream instream = File.Create(path))
+            {
+                byte[] stream = System.Text.Encoding.Default.GetBytes(exmplParams);
+                instream.Write(stream, 0, stream.Length);
+            }
         }
 
-        void MultiPlay()
+        // Other func for multiplayer mode
+        private void Load(string path)
         {
+            if (File.Exists(path))
+            {
+                string exmplParams;
 
+                using (FileStream outstream = File.OpenRead(path))
+                {
+                    byte[] stream = new byte[outstream.Length];
+                    outstream.Read(stream, 0, stream.Length);
+                    exmplParams = System.Text.Encoding.Default.GetString(stream);
+                }
+
+                Console.WriteLine(exmplParams + " was loaded. Continue playing.");
+            }
+            else
+            {
+                Console.WriteLine("Nothing to load. Starting new game.");
+            }
+        }
+
+        public void MakeMultiPlayerAvailable()
+        {
+            isMultiPlayerAvailable = true;
         }
     }
 }

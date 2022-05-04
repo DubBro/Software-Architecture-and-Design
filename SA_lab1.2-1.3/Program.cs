@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace arch_lab1._2_1._3
+namespace SA_lab1._2_1._3
 {
     class Program
     {
@@ -18,6 +18,7 @@ namespace arch_lab1._2_1._3
             desktop.InstallGame(GameID.Strategy); // The game has been installed successfully
             desktop.InstallGame(GameID.Adventure); // The game has been installed successfully
             mobile.InstallGame(GameID.Strategy); // ERROR: This device does not support the game
+            mobile.InstallGame(GameID.RPG);
 
             Console.WriteLine();
 
@@ -28,6 +29,17 @@ namespace arch_lab1._2_1._3
             desktop.Play(GameID.Strategy); // Strategy was loaded. Continue playing. Strategy is running
             Console.WriteLine();
             laptop.Play(GameID.Strategy); // ERROR: The game is not installed
+            Console.WriteLine();
+            mobile.Play(GameID.RPG);
+
+            Console.WriteLine();
+
+            mobile.ConnectManipulator(new Manipulator());
+            mobile.ConnectManipulator(new Manipulator());
+
+            Console.WriteLine();
+
+            mobile.Play(GameID.RPG);
 
             Console.WriteLine();
 
