@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace SA_lab1._2_1._3
 {
-    class TechnicalCharacteristics
+    sealed class TechnicalCharacteristics
     {
         private int hddCapacity, hddUsage, ramCapacity;
         private float graphCardSpeed, processorSpeed;
 
-        public TechnicalCharacteristics()
+        private static TechnicalCharacteristics _instance;
+
+        private TechnicalCharacteristics()
         {
             this.hddCapacity = 500;
             this.hddUsage = 0;
@@ -20,13 +22,25 @@ namespace SA_lab1._2_1._3
             this.processorSpeed = 2.4f;
         }
 
-        public TechnicalCharacteristics(int hddCapacity, int hddUsage, int ramCapacity, float graphCardSpeed, float processorSpeed)
+        private TechnicalCharacteristics(int hddCapacity, int hddUsage, int ramCapacity, float graphCardSpeed, float processorSpeed)
         {
             this.hddCapacity = hddCapacity;
             this.hddUsage = hddUsage;
             this.ramCapacity = ramCapacity;
             this.graphCardSpeed = graphCardSpeed;
             this.processorSpeed = processorSpeed;
+        }
+
+        public static TechnicalCharacteristics GetInstance()
+        {
+            _instance = new TechnicalCharacteristics();
+            return _instance;
+        }
+
+        public static TechnicalCharacteristics GetInstance(int hddCapacity, int hddUsage, int ramCapacity, float graphCardSpeed, float processorSpeed)
+        {
+            _instance = new TechnicalCharacteristics(hddCapacity, hddUsage, ramCapacity, graphCardSpeed, processorSpeed);
+            return _instance;
         }
 
         public int HDDCapacity

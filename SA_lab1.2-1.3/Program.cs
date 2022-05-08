@@ -10,40 +10,48 @@ namespace SA_lab1._2_1._3
     {
         static void Main(string[] args)
         {
-            Device laptop = new Desktop();
-            Desktop desktop = new Desktop(400, 300, 8, 1.8f, 2.2f);
+            Desktop desktop = new Desktop(400, 300, 16, 2.6f, 3.0f);
             Mobile mobile = new Mobile(200, 150, 8, 2.0f, 2.4f);
 
-            desktop.InstallGame((GameID)4); // ERROR: Invalid input. Try again
-            desktop.InstallGame(GameID.Strategy); // The game has been installed successfully
-            desktop.InstallGame(GameID.Adventure); // The game has been installed successfully
-            mobile.InstallGame(GameID.Strategy); // ERROR: This device does not support the game
+            Console.WriteLine("Installing Adventure on the desktop:");
+            desktop.InstallGame(GameID.Adventure);
+            Console.WriteLine();
+
+            Console.WriteLine("Installing Strategy on the mobile:");
+            mobile.InstallGame(GameID.Strategy);
+            Console.WriteLine();
+
+            Console.WriteLine("Installing RPG on the mobile:");
             mobile.InstallGame(GameID.RPG);
 
             Console.WriteLine();
 
-            desktop.Play(GameID.Adventure); // ERROR: Device's technical characteristics are too low
+            Console.WriteLine("Start playing Adventure on the desktop:");
+            desktop.Play(GameID.Adventure);
             Console.WriteLine();
-            desktop.Play(GameID.Strategy); // Nothing to load. Starting new game. Strategy is running
+
+            Console.WriteLine("Start playing Strategy on the desktop:");
+            desktop.Play(GameID.Strategy);
             Console.WriteLine();
-            desktop.Play(GameID.Strategy); // Strategy was loaded. Continue playing. Strategy is running
-            Console.WriteLine();
-            laptop.Play(GameID.Strategy); // ERROR: The game is not installed
-            Console.WriteLine();
+
+
+            Console.WriteLine("Start playing RPG on the mobile:");
             mobile.Play(GameID.RPG);
 
             Console.WriteLine();
 
+            Console.WriteLine("Connecting manipulators:");
             mobile.ConnectManipulator(new Manipulator());
             mobile.ConnectManipulator(new Manipulator());
 
             Console.WriteLine();
 
+            Console.WriteLine("Start playing RPG on the mobile:");
             mobile.Play(GameID.RPG);
 
             Console.WriteLine();
 
-            mobile.Broadcast(); // Mobile is broadcasting
+            mobile.Broadcast();
         }
     }
 }

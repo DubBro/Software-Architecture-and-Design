@@ -43,8 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account.cs" />
     <Compile Include="Device.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IAccount.cs" />
     <Compile Include="ISubscriber.cs" />
     <Compile Include="Manipulator.cs" />
     <Compile Include="Program.cs" />

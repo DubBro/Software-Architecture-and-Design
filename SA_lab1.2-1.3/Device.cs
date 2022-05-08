@@ -95,7 +95,7 @@ namespace SA_lab1._2_1._3
                     technicalCharacteristics.GraphCardSpeed >= rpg.Requirements.GraphCardUsage &&
                     technicalCharacteristics.ProcessorSpeed >= rpg.Requirements.ProcessorUsage)
                 {
-                    (rpg as RPG).Play();
+                    rpg.Play();
                 }
                 else
                 {
@@ -132,12 +132,12 @@ namespace SA_lab1._2_1._3
     {
         public Desktop()
         {
-            technicalCharacteristics = new TechnicalCharacteristics();
+            technicalCharacteristics = TechnicalCharacteristics.GetInstance();
         }
 
         public Desktop(int hddCapacity, int hddUsage, int ramCapacity, float graphCardSpeed, float processorSpeed)
         {
-            technicalCharacteristics = new TechnicalCharacteristics(hddCapacity, hddUsage, ramCapacity, graphCardSpeed, processorSpeed);
+            technicalCharacteristics = TechnicalCharacteristics.GetInstance(hddCapacity, hddUsage, ramCapacity, graphCardSpeed, processorSpeed);
         }
     }
 
@@ -145,12 +145,12 @@ namespace SA_lab1._2_1._3
     {
         public Mobile()
         {
-            technicalCharacteristics = new TechnicalCharacteristics();
+            technicalCharacteristics = TechnicalCharacteristics.GetInstance();
         }
 
         public Mobile(int hddCapacity, int hddUsage, int ramCapacity, float graphCardSpeed, float processorSpeed)
         {
-            technicalCharacteristics = new TechnicalCharacteristics(hddCapacity, hddUsage, ramCapacity, graphCardSpeed, processorSpeed);
+            technicalCharacteristics =TechnicalCharacteristics.GetInstance(hddCapacity, hddUsage, ramCapacity, graphCardSpeed, processorSpeed);
         }
 
         public void Broadcast()

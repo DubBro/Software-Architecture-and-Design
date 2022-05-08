@@ -16,6 +16,7 @@ namespace SA_lab1._2_1._3
 
     abstract class Game
     {
+        private IAccount account;
         protected bool isRunning = false;
         public abstract string SavePath { get; set; }
         protected Requirements requirements;
@@ -84,6 +85,19 @@ namespace SA_lab1._2_1._3
         protected abstract void Save();
 
         protected abstract void Load();
+
+        protected bool LogInToAccount()
+        {
+            Console.WriteLine("You need to log in to your account.");
+            Console.Write("Enter your nickname: ");
+            string nickname = Console.ReadLine();
+            Console.Write("Enter your password: ");
+            string password = Console.ReadLine();
+
+            account = new Account();
+
+            return account.LogIn(nickname, password);
+        }
     }
 
     class Strategy : Game
@@ -103,7 +117,7 @@ namespace SA_lab1._2_1._3
 
         public Strategy()
         {
-            requirements = new Requirements(20, 4, 1.6f, 2.0f);
+            requirements = Requirements.GetInstance(20, 4, 1.6f, 2.0f);
         }
 
         public override void Play()
@@ -112,6 +126,16 @@ namespace SA_lab1._2_1._3
             {
                 Console.WriteLine("ERROR: Can't run 2 or more games at the same time");
                 return;
+            }
+
+            if (!LogInToAccount())
+            {
+                Console.WriteLine("ERROR: Invalid input. Try again");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("You have logged in successfully");
             }
 
             isRunning = true;
@@ -171,7 +195,7 @@ namespace SA_lab1._2_1._3
 
         public Adventure()
         {
-            requirements = new Requirements(50, 8, 2.0f, 2.4f);
+            requirements = Requirements.GetInstance(50, 8, 2.0f, 2.4f);
         }
 
         public override void Play()
@@ -180,6 +204,16 @@ namespace SA_lab1._2_1._3
             {
                 Console.WriteLine("ERROR: Can't run 2 or more games at the same time");
                 return;
+            }
+
+            if (!LogInToAccount())
+            {
+                Console.WriteLine("ERROR: Invalid input. Try again");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("You have logged in successfully");
             }
 
             isRunning = true;
@@ -240,7 +274,7 @@ namespace SA_lab1._2_1._3
 
         public RPG()
         {
-            requirements = new Requirements(40, 8, 1.8f, 2.2f);
+            requirements = Requirements.GetInstance(40, 8, 1.8f, 2.2f);
         }
 
         public override void Play()
@@ -249,6 +283,16 @@ namespace SA_lab1._2_1._3
             {
                 Console.WriteLine("ERROR: Can't run 2 or more games at the same time");
                 return;
+            }
+
+            if (!LogInToAccount())
+            {
+                Console.WriteLine("ERROR: Invalid input. Try again");
+                return;
+            }
+            else
+            {
+                Console.WriteLine("You have logged in successfully");
             }
 
             Console.WriteLine("Choose Mode: ");

@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace SA_lab1._2_1._3
 {
-    class Requirements
+    sealed class Requirements
     {
         private int hddUsage, ramUsage;
         private float graphCardUsage, processorUsage;
 
-        public Requirements()
+        private static Requirements _instance;
+
+        private Requirements()
         {
             this.hddUsage = 50;
             this.ramUsage = 2;
@@ -19,12 +21,24 @@ namespace SA_lab1._2_1._3
             this.processorUsage = 1.6f;
         }
 
-        public Requirements(int hddUsage, int ramUsage, float graphCardUsage, float processorUsage)
+        private Requirements(int hddUsage, int ramUsage, float graphCardUsage, float processorUsage)
         {
             this.hddUsage = hddUsage;
             this.ramUsage = ramUsage;
             this.graphCardUsage = graphCardUsage;
             this.processorUsage = processorUsage;
+        }
+
+        public static Requirements GetInstance()
+        {
+            _instance = new Requirements();
+            return _instance;
+        }
+
+        public static Requirements GetInstance(int hddUsage, int ramUsage, float graphCardUsage, float processorUsage)
+        {
+            _instance = new Requirements(hddUsage, ramUsage, graphCardUsage, processorUsage);
+            return _instance;
         }
 
         public int HDDUsage
