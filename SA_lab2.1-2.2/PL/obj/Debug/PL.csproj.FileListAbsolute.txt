@@ -1,0 +1,17 @@
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\PL.exe.config
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\PL.exe
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\PL.pdb
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\AutoMapper.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\BLL.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\DAL.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\EntityFramework.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\BLL.pdb
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\AutoMapper.xml
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\DAL.pdb
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\DAL.dll.config
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\bin\Debug\EntityFramework.xml
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\obj\Debug\PL.csproj.AssemblyReference.cache
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\obj\Debug\PL.csproj.CoreCompileInputs.cache
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\obj\Debug\PL.csproj.CopyComplete
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\obj\Debug\PL.exe
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.1-2.2\PL\obj\Debug\PL.pdb
