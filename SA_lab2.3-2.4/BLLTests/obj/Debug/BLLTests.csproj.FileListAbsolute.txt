@@ -1,3 +1,9 @@
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\NUnit3.TestAdapter.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\NUnit3.TestAdapter.pdb
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\nunit.engine.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\nunit.engine.api.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\nunit.engine.core.dll
+D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\testcentric.engine.metadata.dll
 D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\BLLTests.dll
 D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\BLLTests.pdb
 D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\AutoFixture.dll
@@ -29,9 +35,3 @@ D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\
 D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\obj\Debug\BLLTests.csproj.CopyComplete
 D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\obj\Debug\BLLTests.dll
 D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\obj\Debug\BLLTests.pdb
-D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\NUnit3.TestAdapter.dll
-D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\NUnit3.TestAdapter.pdb
-D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\nunit.engine.dll
-D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\nunit.engine.api.dll
-D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\nunit.engine.core.dll
-D:\main\Programming tools\MS VS 2019\workspace\Software Architecture and Design\SA_lab2.3-2.4\BLLTests\bin\Debug\testcentric.engine.metadata.dll
