@@ -27,11 +27,16 @@ namespace BLL.Services
 
         public void UpdateOrder(OrderDTO orderDTO)
         {
-            var order = database.Orders.Get(orderDTO.ID);
-
-            if (order == null || !orderDTO.Dishes.Any())
+            if (orderDTO == null || !orderDTO.Dishes.Any())
             {
                 throw new InvalidOrderException();
+            }
+
+            var order = database.Orders.Get(orderDTO.ID);
+
+            if(order == null)
+            {
+                throw new InvalidIdException();
             }
 
             order.Details = orderDTO.Details;

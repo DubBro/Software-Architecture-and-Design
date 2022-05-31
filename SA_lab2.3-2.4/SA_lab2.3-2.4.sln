@@ -12,6 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csp
 		{118C9AC7-72B0-4BF7-9F40-CF0C098DC97C} = {118C9AC7-72B0-4BF7-9F40-CF0C098DC97C}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLLTests", "BLLTests\BLLTests.csproj", "{07F0661C-B9E3-48C6-9EBF-B47A21DF0403}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B39A4B9-24CD-4BBE-B53D-E97AFE7643C0} = {7B39A4B9-24CD-4BBE-B53D-E97AFE7643C0}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +35,10 @@ Global
 		{89E3C7B5-84EA-428A-A46F-AE4CCC78B29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E3C7B5-84EA-428A-A46F-AE4CCC78B29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E3C7B5-84EA-428A-A46F-AE4CCC78B29C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07F0661C-B9E3-48C6-9EBF-B47A21DF0403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F0661C-B9E3-48C6-9EBF-B47A21DF0403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F0661C-B9E3-48C6-9EBF-B47A21DF0403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F0661C-B9E3-48C6-9EBF-B47A21DF0403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
