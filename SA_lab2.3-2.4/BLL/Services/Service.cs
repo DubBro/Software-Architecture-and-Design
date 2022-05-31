@@ -4,7 +4,7 @@ using DAL.Interfaces;
 
 namespace BLL.Services
 {
-    public class Service
+    public abstract class Service
     {
         protected IUnitOfWork database;
         protected readonly IMapper mapper;
