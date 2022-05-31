@@ -7,5 +7,7 @@ namespace BLL.Interfaces
     {
         void AddOrder(OrderDTO order);
         IEnumerable<OrderDTO> GetOrders();
+        void DeleteOrder(int id);
+        void UpdateOrder(OrderDTO order);
     }
 }

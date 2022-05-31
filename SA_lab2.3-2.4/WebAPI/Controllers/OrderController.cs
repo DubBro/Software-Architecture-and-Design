@@ -49,6 +49,36 @@ namespace WebAPI.Controllers
             }
         }
 
+        [HttpPut]
+        [Route("api/order")]
+        public IHttpActionResult PutOrder([FromBody] OrderViewModel order)
+        {
+            try
+            {
+                orderService.UpdateOrder(mapper.Map<OrderViewModel, OrderDTO>(order));
+                return GetOrders();
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
+        [HttpDelete]
+        [Route("api/order")]
+        public IHttpActionResult DeleteOrder(int id)
+        {
+            try
+            {
+                orderService.DeleteOrder(id);
+                return GetOrders();
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         [HttpPost]
         [Route("api/order/complex")]
         public IHttpActionResult PostOrderComplex([FromBody] OrderViewModel order)
