@@ -86,7 +86,7 @@ namespace BLL.Services.Tests
         public void GetDish_should_return_DishDTO()
         {
             // Arrange
-            int id = fixture.Create<int>(); ;
+            int id = fixture.Create<int>();
             Dish dish = fixture.Create<Dish>();
             DishDTO dishDTO = mapper.Map<Dish, DishDTO>(dish);
             uow.Dishes.Get(id).Returns(dish);
